@@ -3,6 +3,7 @@ import { BrowserRouter } from "react-router-dom";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
+import { PageTransition } from "@/components/motion/PageTransition";
 import { AppRoutes } from "./routes";
 
 export default function App() {
@@ -14,7 +15,9 @@ export default function App() {
         <Suspense
           fallback={<div className="container-content py-20">Carregando…</div>}
         >
-          <AppRoutes />
+          <PageTransition>
+            <AppRoutes />
+          </PageTransition>
         </Suspense>
       </main>
       <Footer />
