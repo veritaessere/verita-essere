@@ -4,6 +4,7 @@ import { SkipLink } from "@/components/layout/SkipLink";
 import { Nav } from "@/components/layout/Nav";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/motion/PageTransition";
+import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { AppRoutes } from "./routes";
 
 export default function App() {
@@ -20,6 +21,7 @@ export default function App() {
           </PageTransition>
         </Suspense>
       </main>
+      <WhatsAppFloat />
       <Footer />
     </BrowserRouter>
   );
