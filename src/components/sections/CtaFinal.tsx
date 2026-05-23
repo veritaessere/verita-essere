@@ -4,8 +4,8 @@ import { buildWaLink } from "@/lib/whatsapp";
 
 export function CtaFinal() {
   return (
-    <section className="bg-canvas-parchment">
-      <div className="container-content py-20 md:py-28 text-center max-w-2xl">
+    <section className="bg-canvas-parchment md:min-h-[calc(100vh-5rem)] md:flex md:items-center md:justify-center">
+      <div className="container-content py-20 md:py-28 text-center max-w-2xl w-full">
         <Reveal>
           <p className="eyebrow">Próximo passo</p>
           <h2 className="mt-3 font-display font-light text-4xl md:text-5xl tracking-tight text-ink">

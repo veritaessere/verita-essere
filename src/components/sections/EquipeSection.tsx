@@ -4,8 +4,8 @@ import { professionals } from "@/content/professionals";
 
 export function EquipeSection() {
   return (
-    <section className="bg-canvas-parchment">
-      <div className="container-content py-20 md:py-28">
+    <section className="bg-canvas-parchment md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+      <div className="container-content py-20 md:py-28 w-full">
         <Reveal>
           <p className="eyebrow">Equipe</p>
           <h2 className="mt-3 font-display font-light text-4xl md:text-5xl tracking-tight text-ink max-w-2xl">
