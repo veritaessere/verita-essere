@@ -41,6 +41,9 @@ export default {
         "gold-focus": "rgba(197, 160, 89, 0.15) 0px 0px 0px 4px",
         "hero-photo": "rgba(15, 24, 21, 0.08) 0px 12px 32px -8px",
       },
+      dropShadow: {
+        "hero-photo": "0 12px 24px rgba(15, 24, 21, 0.18)",
+      },
       borderRadius: { card: "16px", pill: "9999px" },
       letterSpacing: { tightish: "-0.01em", tight: "-0.02em", tighter: "-0.03em" },
       maxWidth: { content: "1200px" },
