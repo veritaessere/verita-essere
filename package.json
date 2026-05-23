@@ -39,6 +39,7 @@
     "@typescript-eslint/eslint-plugin": "^8.59.4",
     "@typescript-eslint/parser": "^8.59.4",
     "@vitejs/plugin-react": "^6.0.2",
+    "@vitest/runner": "^3.2.4",
     "autoprefixer": "^10.5.0",
     "eslint": "^10.4.0",
     "eslint-config-prettier": "^10.1.8",
@@ -50,6 +51,6 @@
     "tailwindcss": "^3.4.19",
     "typescript": "^6.0.3",
     "vite": "^8.0.14",
-    "vitest": "^4.1.7"
+    "vitest": "^3.2.4"
   }
 }
