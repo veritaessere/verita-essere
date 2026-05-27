@@ -28,12 +28,11 @@ export function Nav() {
     <header
       className={cn(
         "sticky top-0 z-40 transition-colors",
-        isHome
+        isHome && !scrolled
           ? "bg-hero-bg bg-no-repeat bg-cover bg-center bg-fixed"
-          : "bg-canvas/95",
-        scrolled && "backdrop-blur-md shadow-sm"
+          : "bg-canvas/85 backdrop-blur-md shadow-sm"
       )}
-      style={isHome ? { backgroundImage: `url(${fundo})` } : undefined}
+      style={isHome && !scrolled ? { backgroundImage: `url(${fundo})` } : undefined}
     >
       <div className="container-content flex h-16 md:h-20 items-center justify-between gap-6">
         <Link

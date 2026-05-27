@@ -1,7 +1,6 @@
 import { Seo } from "@/lib/seo";
 import { Reveal } from "@/components/motion/Reveal";
 import { ShieldCheck, UserRound, Leaf } from "lucide-react";
-import fundosobre from "@/assets/images/fundosobre.png";
 import fundocard from "@/assets/images/fundocard.png";
 import lucasImg from "@/assets/images/lucas.png";
 import tamaraImg from "@/assets/images/tamara.png";
@@ -60,10 +59,7 @@ export default function Sobre() {
         description="Conheça a Verità Essere — clínica de psicologia online com atendimento humano, ético e baseado em evidências."
       />
 
-      <section
-        className="bg-canvas-parchment bg-no-repeat bg-cover bg-center"
-        style={{ backgroundImage: `url(${fundosobre})` }}
-      >
+      <section className="bg-white">
         <div className="container-content py-20 md:py-28">
           <Reveal>
             <p className="eyebrow text-center text-primary">Sobre nós</p>
@@ -73,10 +69,9 @@ export default function Sobre() {
             </h1>
             <OliveDivider />
             <p className="mt-8 mx-auto max-w-3xl text-center text-lg text-body leading-relaxed">
-              Na Verità Essere, acreditamos que cada pessoa carrega uma história
-              única. Nossa missão é oferecer um atendimento psicológico ético,
-              acolhedor e baseado em evidências científicas, para promover saúde
-              emocional e qualidade de vida.
+              Cada pessoa tem uma história única. Oferecemos atendimento
+              psicológico ético, acolhedor e baseado em evidências para promover
+              saúde emocional e qualidade de vida.
             </p>
           </Reveal>
 

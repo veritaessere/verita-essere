@@ -9,7 +9,7 @@ export const site = {
     raw: "5545888162056",
     display: "(45) 88816-2056",
   },
-  email: "contato@veritaessere.com.br",
+  email: "verita@gmail.com.br",
   instagram: "https://instagram.com/veritaessere",
   city: "Medianeira - PR",
   hours: { days: "Segunda a sábado", time: "07h às 23h" },

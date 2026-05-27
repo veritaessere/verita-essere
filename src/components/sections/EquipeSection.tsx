@@ -8,7 +8,7 @@ export function EquipeSection() {
       <div className="container-content py-20 md:py-28 w-full">
         <Reveal>
           <p className="eyebrow">Equipe</p>
-          <h2 className="mt-3 font-display font-light text-4xl md:text-5xl tracking-tight text-ink max-w-2xl">
+          <h2 className="mt-3 font-display font-light text-3xl sm:text-4xl md:text-5xl tracking-tight text-ink max-w-2xl">
             Profissionais para acompanhar a sua jornada.
           </h2>
         </Reveal>

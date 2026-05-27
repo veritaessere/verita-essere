@@ -1,6 +1,5 @@
 import { ShieldCheck, UserRound, Leaf } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
-import fundosobre from "@/assets/images/fundosobre.png";
 import fundocard from "@/assets/images/fundocard.png";
 import lucasImg from "@/assets/images/lucas.png";
 import tamaraImg from "@/assets/images/tamara.png";
@@ -52,14 +51,11 @@ function OliveDivider() {
 
 export function SobreSnippet() {
   return (
-    <section
-      className="bg-canvas-parchment bg-no-repeat bg-cover bg-center md:min-h-[calc(100vh-5rem)] md:flex md:items-center"
-      style={{ backgroundImage: `url(${fundosobre})` }}
-    >
+    <section className="bg-white md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
       <div className="py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
         <Reveal>
           <p className="eyebrow text-center text-primary">Sobre nós</p>
-          <h2 className="mt-4 text-center font-serif font-medium text-ink leading-[1.1] tracking-tight text-5xl md:text-6xl lg:text-7xl">
+          <h2 className="mt-4 text-center font-serif font-medium text-ink leading-[1.1] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">
             Quem <em className="italic font-normal text-hero-green">cuida</em>{" "}
             de você
           </h2>

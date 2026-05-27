@@ -1,97 +1,179 @@
-import { CalendarCheck, MessageCircle, Monitor, CalendarDays, ChevronRight } from "lucide-react";
+import { useRef, useState } from "react";
+import { Check, Plus } from "lucide-react";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/button-1";
+import { Stepper, StepperItem, StepperIndicator } from "@/components/stepper";
+import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { buildWaLink } from "@/lib/whatsapp";
-import fundoareas from "@/assets/images/fundoareas.png";
+import img1 from "@/assets/images/comocard1.png";
+import img2 from "@/assets/images/comocard2.png";
+import img3 from "@/assets/images/comocard3.png";
 
 const steps = [
   {
     n: 1,
-    icon: CalendarCheck,
-    title: "Clique em agendar",
-    body: "Inicie seu atendimento a partir do botão disponível no site.",
+    img: img1,
+    title: "Agende sua sessão",
+    body: "Escolha o melhor dia e horário \n para você com apenas alguns cliques.",
+    // fração do scroll em que o marcador é preenchido
+    fill: 0,
   },
   {
     n: 2,
-    icon: MessageCircle,
-    title: "Alinhe pelo WhatsApp",
-    body: "Defina o horário da consulta em contato direto com o psicólogo.",
+    img: img2,
+    title: "Fale pelo WhatsApp",
+    body: "Confirmamos sua sessão\ne tiramos todas as suas \ndúvidas.",
+    fill: 0.5,
   },
   {
     n: 3,
-    icon: Monitor,
+    img: img3,
     title: "Entre na sessão online",
-    body: "Acesse a videochamada no dia e hora combinados.",
+    body: "No dia e horário marcados, é só acessar e cuidar do que realmente importa: você.",
+    fill: 1,
   },
 ];
+
+const completedIndicator = <Check className="h-4 w-4" strokeWidth={2.5} aria-hidden />;
+
+function StepTimeline() {
+  const reduced = usePrefersReducedMotion();
+  const trackRef = useRef<HTMLDivElement>(null);
+  const [progress, setProgress] = useState(reduced ? 1 : 0);
+
+  // progresso do scroll enquanto a timeline cruza a viewport
+  const { scrollYProgress } = useScroll({
+    target: trackRef,
+    offset: ["start 80%", "end 55%"],
+  });
+  const fillWidth = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
+
+  useMotionValueEvent(scrollYProgress, "change", (v) => {
+    if (!reduced) setProgress(v);
+  });
+
+  return (
+    <Stepper value={1} indicators={{ completed: completedIndicator }}>
+      <div className="mt-16 md:mt-20">
+        {/* linha + marcadores */}
+        <div ref={trackRef} className="relative">
+          {/* trilho de fundo (centro a centro dos marcadores) */}
+          <div className="absolute left-5 right-5 top-5 h-[2px] -translate-y-1/2">
+            <div className="absolute inset-0 rounded-full bg-primary/20" aria-hidden />
+            <motion.div
+              className="absolute inset-y-0 left-0 rounded-full bg-hero-green"
+              style={{ width: reduced ? "100%" : fillWidth }}
+              aria-hidden
+            />
+          </div>
+
+          {/* marcadores */}
+          <div className="relative z-10 flex justify-between">
+            {steps.map((s) => (
+              <StepperItem
+                key={s.n}
+                step={s.n}
+                completed={progress >= s.fill}
+                className="flex-none"
+              >
+                <StepperIndicator className="size-10 border border-primary/40 bg-canvas font-serif text-base text-ink/70 transition-colors duration-500 data-[state=completed]:border-hero-green data-[state=completed]:bg-hero-green data-[state=completed]:text-canvas">
+                  {s.n}
+                </StepperIndicator>
+              </StepperItem>
+            ))}
+          </div>
+        </div>
+
+        {/* cards de cada passo, alinhados às colunas dos marcadores */}
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:grid-cols-3 md:gap-8">
+          {steps.map((s, i) => (
+            <Reveal key={s.n} delay={i * 0.08}>
+              <article
+                className="relative flex h-[330px] flex-col overflow-hidden rounded-[24px] bg-canvas-parchment bg-cover bg-center p-6 text-left shadow-sm transition-shadow duration-300 hover:shadow-card md:h-[360px]"
+                style={{ backgroundImage: `url(${s.img})` }}
+                role="img"
+                aria-label={s.title}
+              >
+                {/* overlay sutil só para legibilidade do texto */}
+                <div
+                  className="pointer-events-none absolute inset-0 bg-gradient-to-t from-canvas-parchment/35 via-transparent to-transparent"
+                  aria-hidden
+                />
+
+                {/* número (topo) */}
+                <span className="relative flex items-center gap-3">
+                  <span className="font-serif text-lg font-medium text-primary">
+                    {String(s.n).padStart(2, "0")}
+                  </span>
+                  <span className="h-px w-8 bg-primary/50" aria-hidden />
+                </span>
+
+                {/* título + corpo */}
+                <div className="relative mt-4 pr-12">
+                  <h3 className="font-serif text-xl font-medium leading-tight text-black md:text-2xl">
+                    {s.title}
+                  </h3>
+                  <p className="mt-2.5 max-w-[15rem] whitespace-pre-line text-[0.8rem] font-medium leading-relaxed text-black">
+                    {s.body}
+                  </p>
+                </div>
+
+                {/* botão + */}
+                <span
+                  className="absolute bottom-5 right-5 flex h-10 w-10 items-center justify-center rounded-full bg-canvas text-ink shadow-card"
+                  aria-hidden
+                >
+                  <Plus className="h-[18px] w-[18px]" strokeWidth={1.5} />
+                </span>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </Stepper>
+  );
+}
 
 export function ComoFunciona() {
   return (
     <section
       id="como-funciona"
-      className="bg-canvas-parchment bg-no-repeat bg-cover bg-center md:min-h-[calc(100vh-5rem)] md:flex md:items-center"
-      style={{ backgroundImage: `url(${fundoareas})` }}
+      className="bg-canvas md:min-h-[calc(100vh-5rem)] md:flex md:items-center"
     >
-      <div className="py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10 grid gap-12 md:grid-cols-12 md:gap-10 items-center">
-        <Reveal className="md:col-span-5">
-          <div>
+      <div className="py-20 md:py-28 w-full max-w-[1100px] mx-auto px-6 md:px-10">
+        {/* cabeçalho */}
+        <Reveal className="text-center">
+          <div className="flex flex-col items-center">
             <p className="eyebrow text-primary">Como funciona</p>
             <span className="mt-3 block h-px w-16 bg-primary/60" />
-            <h2 className="mt-8 font-serif font-medium text-ink leading-[1.05] tracking-tight text-5xl md:text-6xl lg:text-7xl">
-              Da escolha do horário à sua{" "}
-              <em className="italic font-normal text-hero-green">consulta</em>
+            <h2 className="mt-6 font-serif font-medium text-ink leading-[1.05] tracking-tight text-4xl sm:text-5xl md:text-6xl">
+              Começar sua terapia é{" "}
+              <em className="italic font-normal text-hero-green">simples</em>
             </h2>
-            <span className="mt-8 block h-px w-24 bg-primary/60" />
-            <p className="mt-6 max-w-md text-body leading-relaxed">
-              Organizamos o atendimento de forma prática para que você tenha
-              conforto desde o primeiro clique até a chamada online.
+            <p className="mt-5 text-lg text-body leading-relaxed">
+              Um processo acolhedor, prático e 100% online.
             </p>
             <div className="mt-8">
-              <Button asChild variant="green" size="lg">
+              <Button
+                asChild
+                size="lg"
+                className="h-12 rounded-pill bg-hero-green px-8 text-base text-canvas shadow-sm hover:bg-hero-green-hover"
+              >
                 <a
                   href={buildWaLink("generic")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2"
                 >
-                  <CalendarDays className="h-4 w-4" aria-hidden />
-                  Agendar consulta
-                  <ChevronRight className="h-4 w-4" aria-hidden />
+                  Agendar minha primeira sessão
                 </a>
               </Button>
             </div>
           </div>
         </Reveal>
 
-        <div className="md:col-span-7 relative">
-          <span
-            className="hidden md:block absolute left-6 top-12 bottom-12 w-px bg-primary/40"
-            aria-hidden
-          />
-          <ul className="flex flex-col gap-6">
-            {steps.map((s, i) => (
-              <Reveal key={s.n} delay={i * 0.08}>
-                <li className="relative flex items-stretch gap-5 md:gap-6 md:pl-0">
-                  <span
-                    className="relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-primary/60 bg-canvas font-serif text-xl text-ink self-center"
-                    aria-hidden
-                  >
-                    {s.n}
-                  </span>
-                  <article className="relative flex-1 rounded-[20px] border border-divider-soft bg-canvas/85 shadow-sm px-6 py-6 md:px-8 md:py-7 flex items-center gap-5">
-                    <span className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-canvas-parchment text-ink/80">
-                      <s.icon className="h-7 w-7" strokeWidth={1.5} aria-hidden />
-                    </span>
-                    <div>
-                      <h3 className="font-serif text-2xl text-ink">{s.title}</h3>
-                      <p className="mt-2 text-body leading-relaxed">{s.body}</p>
-                    </div>
-                  </article>
-                </li>
-              </Reveal>
-            ))}
-          </ul>
-        </div>
+        {/* passo a passo com preenchimento no scroll */}
+        <StepTimeline />
       </div>
     </section>
   );
