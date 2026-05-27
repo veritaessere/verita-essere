@@ -7,11 +7,11 @@ import fundo from "@/assets/images/fundo.png";
 export function Hero() {
   return (
     <section
-      className="bg-hero-bg bg-no-repeat bg-cover bg-center md:bg-fixed lg:flex lg:items-stretch lg:min-h-[calc(100vh-5rem)]"
+      className="bg-hero-bg bg-no-repeat bg-cover bg-center md:bg-fixed lg:flex lg:items-stretch lg:h-[calc(100vh-5rem)] lg:overflow-hidden"
       style={{ backgroundImage: `url(${fundo})` }}
     >
-      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-28 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 pt-10 sm:pt-12 lg:pt-16 pb-0 lg:items-start">
-        <div className="lg:col-span-6 pb-12 text-center sm:text-left">
+      <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-28 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 pt-10 sm:pt-12 lg:pt-16 pb-0 lg:items-stretch">
+        <div className="lg:col-span-6 pb-12 lg:pb-0 text-center sm:text-left lg:flex lg:flex-col lg:justify-center lg:-translate-y-20">
           <p className="flex items-center justify-center sm:justify-start gap-2 mb-5 lg:mb-4 text-sm font-medium text-hero-green">
             <Leaf className="h-4 w-4" aria-hidden />
             Psicologia clínica com acolhimento e ética
