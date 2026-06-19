@@ -1,9 +1,10 @@
 import type { ComponentProps, ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { motion, useReducedMotion } from "motion/react";
-import { Leaf, Mail, MessageCircle, Clock } from "lucide-react";
+import { Mail, MessageCircle, Clock } from "lucide-react";
 import { site } from "@/content/site";
 import { buildWaLink } from "@/lib/whatsapp";
+import logo from "@/assets/images/logo.png";
 
 function Instagram({ className }: { className?: string }) {
   return (
@@ -121,7 +122,7 @@ export function Footer() {
           {/* marca */}
           <AnimatedContainer className="space-y-4">
             <div className="flex items-center gap-2">
-              <Leaf className="h-5 w-5 text-primary-on-dark" aria-hidden />
+              <img src={logo} alt="" className="h-10 w-10 object-contain" aria-hidden />
               <span className="font-serif text-2xl">{site.name}</span>
             </div>
             <p className="font-serif italic text-body-muted">{site.taglineIt}</p>

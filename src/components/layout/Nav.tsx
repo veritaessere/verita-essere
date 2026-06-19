@@ -1,11 +1,12 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Leaf, Menu, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
 import { buildWaLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/cn";
 import fundo from "@/assets/images/fundo.png";
+import logo from "@/assets/images/logo.png";
 
 export function Nav() {
   const { pathname } = useLocation();
@@ -40,7 +41,7 @@ export function Nav() {
           className="flex items-center gap-2 text-ink"
           aria-label="Verità Essere — início"
         >
-          <Leaf className="h-5 w-5 text-hero-green" aria-hidden />
+          <img src={logo} alt="" className="h-8 w-8 md:h-10 md:w-10 object-contain" aria-hidden />
           <span className="font-serif text-xl md:text-2xl">Verità Essere</span>
         </Link>
 

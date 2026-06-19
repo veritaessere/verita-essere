@@ -1,7 +1,7 @@
 import { Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { buildWaLink } from "@/lib/whatsapp";
-import psicologos from "@/assets/images/psicologos.png";
+import lucas from "@/assets/images/lucas.png";
 import fundo from "@/assets/images/fundo.png";
 
 export function Hero() {
@@ -43,8 +43,8 @@ export function Hero() {
 
         <div className="lg:col-span-6 lg:self-end flex justify-center lg:justify-end">
           <img
-            src={psicologos}
-            alt="Lucas Fachin e Tamara Mikaelly, psicólogos da Verità Essere"
+            src={lucas}
+            alt="Lucas Fachin, psicólogo da Verità Essere"
             width={520}
             height={620}
             loading="eager"
