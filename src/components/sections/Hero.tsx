@@ -12,21 +12,19 @@ export function Hero() {
     >
       <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-28 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 pt-10 sm:pt-12 lg:pt-16 pb-0 lg:items-stretch">
         <div className="lg:col-span-6 pb-12 lg:pb-0 text-center sm:text-left lg:flex lg:flex-col lg:justify-center lg:-translate-y-20">
-          <p className="flex items-center justify-center sm:justify-start gap-2 mb-5 lg:mb-4 text-sm font-medium text-hero-green">
-            <Leaf className="h-4 w-4" aria-hidden />
-            Psicologia clínica com acolhimento e ética
-          </p>
-
-          <h1 className="font-serif font-medium text-hero-ink leading-[1.05] tracking-tight text-[34px] min-[400px]:text-[40px] sm:text-[52px] md:text-6xl lg:text-5xl xl:text-[64px] 2xl:text-7xl">
-            Um espaço seguro para{" "}
-            <em className="italic text-hero-green font-normal">cuidar</em>{" "}
-            da sua saúde emocional.
+          <h1 className="font-serif font-medium text-hero-ink leading-[1.05] tracking-tight text-[40px] min-[400px]:text-[48px] sm:text-[60px] md:text-7xl lg:text-6xl xl:text-[76px] 2xl:text-8xl">
+            Você não chegou até aqui{" "}
+            <em className="italic text-hero-green font-normal">por acaso.</em>
           </h1>
 
-          <p className="mt-6 lg:mt-4 text-base sm:text-lg lg:text-base xl:text-lg text-hero-muted max-w-xl mx-auto sm:mx-0">
-            Atendimento psicológico online especializado para ajudar você a
-            compreender, ressignificar e viver com mais equilíbrio, leveza e
-            bem-estar.
+          <blockquote className="mt-7 lg:mt-5 border-l-2 border-hero-green/40 pl-4 text-lg sm:text-xl lg:text-lg xl:text-xl italic font-serif text-hero-ink max-w-xl mx-auto sm:mx-0">
+            A mente que se desafia a conhecer a si mesma é a que encontra
+            equilíbrio e clareza.
+          </blockquote>
+
+          <p className="mt-7 lg:mt-5 flex items-center justify-center sm:justify-start gap-2 text-base font-medium text-hero-muted">
+            <Leaf className="h-4 w-4 text-hero-green" aria-hidden />
+            Psicologia clínica online com práticas baseadas em evidências
           </p>
 
           <div className="mt-8 lg:mt-6 flex flex-wrap justify-center sm:justify-start gap-3">

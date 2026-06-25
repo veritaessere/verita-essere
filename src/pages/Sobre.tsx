@@ -3,22 +3,15 @@ import { Reveal } from "@/components/motion/Reveal";
 import { ShieldCheck, UserRound, Leaf } from "lucide-react";
 import fundocard from "@/assets/images/fundocard.png";
 import lucasImg from "@/assets/images/lucas.png";
-import tamaraImg from "@/assets/images/tamara.png";
 
 const psicologos = [
   {
     id: "lucas",
     role: "Psicólogo clínico",
+    crp: "CRP-08/46660",
     name: "Lucas Fachin",
     photo: lucasImg,
-    bio: "Atendimento psicológico com foco na compreensão profunda das emoções, comportamentos e relações humanas.",
-  },
-  {
-    id: "tamara",
-    role: "Psicóloga clínica",
-    name: "Tamara Mikaelly",
-    photo: tamaraImg,
-    bio: "Acolhimento empático e intervenções personalizadas para promover equilíbrio emocional e bem-estar duradouro.",
+    bio: "Atendo pela abordagem da Terapia Cognitivo-Comportamental, com práticas baseadas em evidências. Cada pessoa que chega até mim traz um mundo diferente, e meu compromisso é estar preparado para acolher cada um.",
   },
 ];
 
@@ -36,7 +29,7 @@ const pilares = [
   {
     icon: Leaf,
     title: "Base científica",
-    body: "Técnicas e métodos reconhecidos pela psicologia moderna.",
+    body: "Psicoterapia baseada em evidências.",
   },
 ];
 
@@ -69,13 +62,16 @@ export default function Sobre() {
             </h1>
             <OliveDivider />
             <p className="mt-8 mx-auto max-w-3xl text-center text-lg text-body leading-relaxed">
-              Cada pessoa tem uma história única. Oferecemos atendimento
-              psicológico ético, acolhedor e baseado em evidências para promover
-              saúde emocional e qualidade de vida.
+              Nosso trabalho é baseado em evidências, guiado pela ciência e
+              sustentado por um objetivo muito claro: ajudar pessoas de forma
+              real. Não acreditamos em um cuidado vazio, em promessas bonitas ou
+              em uma psicologia sem entrega. Acreditamos em escuta qualificada,
+              comprometimento com o processo terapêutico e resultados que façam
+              sentido na vida de cada cliente.
             </p>
           </Reveal>
 
-          <div className="mt-16 md:mt-20 grid gap-8 md:grid-cols-2 max-w-6xl mx-auto">
+          <div className="mt-16 md:mt-20 max-w-2xl mx-auto">
             {psicologos.map((p, i) => (
               <Reveal key={p.id} delay={i * 0.1}>
                 <article
@@ -91,7 +87,7 @@ export default function Sobre() {
                         loading="lazy"
                       />
                     </div>
-                    <div className="col-span-3 p-6 md:p-8 pl-2 md:pl-4 pb-10">
+                    <div className="col-span-3 p-6 md:p-8 pl-6 md:pl-10 pb-10">
                       <div className="flex items-center gap-2 text-primary">
                         <span className="flex h-7 w-7 items-center justify-center rounded-full border border-primary/60">
                           <UserRound className="h-3.5 w-3.5" aria-hidden />
@@ -101,6 +97,9 @@ export default function Sobre() {
                       <h2 className="mt-4 font-serif font-normal text-ink text-3xl md:text-4xl tracking-tight leading-tight">
                         {p.name}
                       </h2>
+                      <span className="mt-1 block text-sm text-primary/80 font-medium">
+                        {p.crp}
+                      </span>
                       <span className="mt-3 block h-px w-12 bg-primary" />
                       <p className="mt-4 text-body leading-relaxed">{p.bio}</p>
                     </div>
