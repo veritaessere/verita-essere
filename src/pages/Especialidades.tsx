@@ -12,7 +12,7 @@ export default function Especialidades() {
         description="Conheça as áreas de atuação da Verità Essere: ansiedade, depressão, autismo, infantil e mais."
       />
 
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content pt-16 md:pt-24 pb-10 max-w-3xl">
           <p className="eyebrow">Áreas de atuação</p>
           <h1 className="mt-3 font-display font-light text-5xl md:text-6xl tracking-tight text-ink">
@@ -21,7 +21,7 @@ export default function Especialidades() {
         </div>
       </section>
 
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content pb-20 md:pb-28 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {specialties.map((s, i) => (
             <Reveal key={s.slug} delay={(i % 3) * 0.06}>

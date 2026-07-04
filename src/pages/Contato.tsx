@@ -8,7 +8,7 @@ export default function Contato() {
     <>
       <Seo path="/contato" title="Contato" description="Entre em contato com a Verità Essere por email ou WhatsApp." />
 
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content pt-16 md:pt-24 pb-10 max-w-3xl">
           <p className="eyebrow">Contato</p>
           <h1 className="mt-3 font-display font-light text-5xl md:text-6xl tracking-tight text-ink">
@@ -20,7 +20,7 @@ export default function Contato() {
         </div>
       </section>
 
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content pb-20 md:pb-28 grid gap-10 md:grid-cols-3">
           <div className="md:col-span-2">
             <ContatoForm />

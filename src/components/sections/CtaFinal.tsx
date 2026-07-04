@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Reveal } from "@/components/motion/Reveal";
 import { buildWaLink } from "@/lib/whatsapp";
-import ctafundo from "@/assets/images/ctafundo.jpg";
+import { SoftAmbience } from "@/components/ui/SoftAmbience";
+import ctafundo from "@/assets/images/fundocta.png";
 
 export function CtaFinal() {
   return (
-    <section className="bg-canvas md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
-      <div className="container-content py-20 md:py-28 w-full">
+    <section className="relative overflow-hidden bg-canvas-tint md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+      <SoftAmbience />
+      <div className="relative container-content py-20 md:py-28 w-full">
         <Reveal>
           <div
             className="relative min-h-[440px] overflow-hidden rounded-[28px] bg-cover bg-center shadow-lift md:min-h-[520px] md:flex md:items-center"

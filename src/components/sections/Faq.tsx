@@ -5,6 +5,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { SoftAmbience } from "@/components/ui/SoftAmbience";
 
 const faqs = [
   {
@@ -41,8 +42,9 @@ const faqs = [
 
 export function Faq() {
   return (
-    <section className="bg-canvas md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
-      <div className="container-content py-20 md:py-28 w-full">
+    <section className="relative overflow-hidden bg-canvas-tint md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+      <SoftAmbience />
+      <div className="relative container-content py-20 md:py-28 w-full">
         <Reveal>
           <p className="eyebrow text-primary text-center">Dúvidas frequentes</p>
           <h2 className="mt-4 text-center font-serif font-medium text-ink leading-[1.1] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">

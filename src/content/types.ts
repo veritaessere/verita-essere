@@ -24,6 +24,7 @@ export type Specialty = {
     | "Heart"
     | "MessagesSquare"
     | "Sprout";
+  image: string;
 };
 
 export type WhatsAppContext =

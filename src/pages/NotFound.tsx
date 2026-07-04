@@ -6,7 +6,7 @@ export default function NotFound() {
   return (
     <>
       <Seo path="/404" title="Página não encontrada" noindex />
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content py-24 md:py-32 max-w-2xl text-center">
           <p className="eyebrow">Erro 404</p>
           <h1 className="mt-3 font-display font-light text-5xl tracking-tight text-ink">

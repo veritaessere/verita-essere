@@ -1,5 +1,6 @@
 import { ShieldCheck, UserRound, Leaf } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
+import { SoftAmbience } from "@/components/ui/SoftAmbience";
 import fundocard from "@/assets/images/fundocard.png";
 import lucasImg from "@/assets/images/lucas.png";
 
@@ -44,8 +45,9 @@ function OliveDivider() {
 
 export function SobreSnippet() {
   return (
-    <section className="bg-white md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
-      <div className="py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
+    <section className="relative overflow-hidden bg-canvas-tint md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+      <SoftAmbience />
+      <div className="relative py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
         <Reveal>
           <p className="eyebrow text-center text-primary">Sobre nós</p>
           <h2 className="mt-4 text-center font-serif font-medium text-ink leading-[1.1] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl">

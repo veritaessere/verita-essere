@@ -15,7 +15,7 @@ export default function Equipe() {
         jsonLd={personSchemas}
       />
 
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content pt-16 md:pt-24 pb-10">
           <p className="eyebrow">Equipe</p>
           <h1 className="mt-3 font-display font-light text-5xl md:text-6xl tracking-tight text-ink max-w-3xl">
@@ -24,7 +24,7 @@ export default function Equipe() {
         </div>
       </section>
 
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content pb-20 md:pb-28 grid gap-12">
           {professionals.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.08}>

@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { Check, Plus } from "lucide-react";
+import { Check } from "lucide-react";
 import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/button-1";
@@ -60,9 +60,9 @@ function StepTimeline() {
         <div ref={trackRef} className="relative">
           {/* trilho de fundo (centro a centro dos marcadores) */}
           <div className="absolute left-5 right-5 top-5 h-[2px] -translate-y-1/2">
-            <div className="absolute inset-0 rounded-full bg-primary/20" aria-hidden />
+            <div className="absolute inset-0 rounded-full bg-primary-on-dark/25" aria-hidden />
             <motion.div
-              className="absolute inset-y-0 left-0 rounded-full bg-hero-green"
+              className="absolute inset-y-0 left-0 rounded-full bg-primary"
               style={{ width: reduced ? "100%" : fillWidth }}
               aria-hidden
             />
@@ -77,7 +77,7 @@ function StepTimeline() {
                 completed={progress >= s.fill}
                 className="flex-none"
               >
-                <StepperIndicator className="size-10 border border-primary/40 bg-canvas font-serif text-base text-ink/70 transition-colors duration-500 data-[state=completed]:border-hero-green data-[state=completed]:bg-hero-green data-[state=completed]:text-canvas">
+                <StepperIndicator className="size-10 border border-primary-on-dark/50 bg-surface-deep font-serif text-base text-body-on-dark/70 transition-colors duration-500 data-[state=completed]:border-primary data-[state=completed]:bg-primary data-[state=completed]:text-ink">
                   {s.n}
                 </StepperIndicator>
               </StepperItem>
@@ -119,13 +119,6 @@ function StepTimeline() {
                   </p>
                 </div>
 
-                {/* botão + */}
-                <span
-                  className="absolute bottom-5 right-5 flex h-10 w-10 items-center justify-center rounded-full bg-canvas text-ink shadow-card"
-                  aria-hidden
-                >
-                  <Plus className="h-[18px] w-[18px]" strokeWidth={1.5} />
-                </span>
               </article>
             </Reveal>
           ))}
@@ -139,26 +132,61 @@ export function ComoFunciona() {
   return (
     <section
       id="como-funciona"
-      className="bg-canvas md:min-h-[calc(100vh-5rem)] md:flex md:items-center"
+      className="relative overflow-hidden bg-surface-forest md:min-h-[calc(100vh-5rem)] md:flex md:items-center"
     >
-      <div className="py-20 md:py-28 w-full max-w-[1100px] mx-auto px-6 md:px-10">
+      {/* profundidade: gradiente diagonal (mais claro no topo, mais fundo embaixo) */}
+      <div
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/[0.06] via-transparent to-black/25"
+        aria-hidden
+      />
+      {/* brilho verde difuso à esquerda */}
+      <div
+        className="pointer-events-none absolute -left-24 top-1/4 h-[420px] w-[420px] rounded-full bg-hero-green/40 blur-[120px]"
+        aria-hidden
+      />
+      {/* brilho dourado difuso à direita */}
+      <div
+        className="pointer-events-none absolute -right-32 bottom-0 h-[460px] w-[460px] rounded-full bg-primary/15 blur-[130px]"
+        aria-hidden
+      />
+      {/* brilho radial no topo */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[radial-gradient(40%_128px_at_50%_0%,rgba(255,255,255,0.08),transparent)]"
+        aria-hidden
+      />
+      {/* linha de destaque no topo */}
+      <div
+        className="pointer-events-none absolute left-1/2 top-0 h-px w-1/3 -translate-x-1/2 rounded-full bg-white/25 blur-sm"
+        aria-hidden
+      />
+      {/* textura de grão sutil */}
+      <div
+        className="pointer-events-none absolute inset-0 opacity-[0.15] mix-blend-soft-light"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")",
+        }}
+        aria-hidden
+      />
+
+      <div className="relative py-20 md:py-28 w-full max-w-[1100px] mx-auto px-6 md:px-10">
         {/* cabeçalho */}
         <Reveal className="text-center">
           <div className="flex flex-col items-center">
             <p className="eyebrow text-primary">Como funciona</p>
             <span className="mt-3 block h-px w-16 bg-primary/60" />
-            <h2 className="mt-6 font-serif font-medium text-ink leading-[1.05] tracking-tight text-4xl sm:text-5xl md:text-6xl">
+            <h2 className="mt-6 font-serif font-medium text-body-on-dark leading-[1.05] tracking-tight text-4xl sm:text-5xl md:text-6xl">
               Começar sua terapia é{" "}
-              <em className="italic font-normal text-hero-green">simples</em>
+              <em className="italic font-normal text-primary-on-dark">simples</em>
             </h2>
-            <p className="mt-5 text-lg text-body leading-relaxed">
+            <p className="mt-5 text-lg text-body-on-dark/85 leading-relaxed">
               Um processo acolhedor, prático e 100% online.
             </p>
             <div className="mt-8">
               <Button
                 asChild
                 size="lg"
-                className="h-12 rounded-pill bg-hero-green px-8 text-base text-canvas shadow-sm hover:bg-hero-green-hover"
+                className="h-12 rounded-pill bg-primary px-8 text-base text-ink shadow-sm hover:bg-primary-hover"
               >
                 <a
                   href={buildWaLink("generic")}

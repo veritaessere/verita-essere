@@ -52,7 +52,7 @@ export default function Sobre() {
         description="Conheça a Verità Essere — clínica de psicologia online com atendimento humano, ético e baseado em evidências."
       />
 
-      <section className="bg-white">
+      <section className="bg-canvas-tint">
         <div className="container-content py-20 md:py-28">
           <Reveal>
             <p className="eyebrow text-center text-primary">Sobre nós</p>
@@ -114,7 +114,7 @@ export default function Sobre() {
               <ul className="grid gap-8 md:grid-cols-3">
                 {pilares.map((p) => (
                   <li key={p.title} className="flex items-start gap-4">
-                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-surface-deep text-primary-on-dark ring-2 ring-primary/40 ring-offset-2 ring-offset-canvas-parchment">
+                    <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-hero-green text-primary-on-dark ring-2 ring-primary/40 ring-offset-2 ring-offset-canvas-parchment">
                       <p.icon className="h-5 w-5" aria-hidden />
                     </span>
                     <div>

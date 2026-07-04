@@ -1,33 +1,45 @@
-import { useState } from "react";
-import * as Icons from "lucide-react";
-import {
-  CalendarDays,
-  ChevronRight,
-  ChevronLeft,
-  ArrowUpRight,
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import { CalendarDays, ChevronRight, ChevronLeft } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/ui/button";
 import { buildWaLink } from "@/lib/whatsapp";
 import { specialties } from "@/content/specialties";
-import fundocard from "@/assets/images/fundocard.png";
+import { SoftAmbience } from "@/components/ui/SoftAmbience";
 
-const COLLAPSED_W = 230; // px — largura do card recolhido
-const EXPANDED_W = 312; // px — largura do card ativo (expandido)
-const GAP = 20; // px — espaço entre cards
-const STEP = COLLAPSED_W + GAP;
-
-const pad = (n: number) => String(n).padStart(2, "0");
+const CARD_W = 300; // px — largura-alvo do card (usada só p/ decidir quantos cabem)
+const GAP = 24; // px — espaço entre cards (uniforme)
 
 export function AreasSection() {
   const [active, setActive] = useState(0);
 
+  // largura visível do trilho (para alinhar à esquerda sem sobrar espaço/cortar)
+  const viewportRef = useRef<HTMLDivElement>(null);
+  const [vw, setVw] = useState(0);
+  useEffect(() => {
+    const el = viewportRef.current;
+    if (!el) return;
+    const update = () => setVw(el.clientWidth);
+    update();
+    const ro = new ResizeObserver(update);
+    ro.observe(el);
+    return () => ro.disconnect();
+  }, []);
+
+  // quantos cards cabem inteiros na largura visível; ajusta a largura p/ preencher exato
+  const visible = vw > 0 ? Math.max(1, Math.round((vw + GAP) / (CARD_W + GAP))) : 1;
+  const cardW = vw > 0 ? (vw - (visible - 1) * GAP) / visible : CARD_W;
+  const step = cardW + GAP;
+  const maxActive = Math.max(0, specialties.length - visible);
+  const clampedActive = Math.min(active, maxActive);
+  const offset = clampedActive * step;
+
   const go = (dir: -1 | 1) =>
-    setActive((i) => Math.min(specialties.length - 1, Math.max(0, i + dir)));
+    setActive((i) => Math.min(maxActive, Math.max(0, Math.min(i, maxActive) + dir)));
 
   return (
-    <section className="bg-white overflow-hidden md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
-      <div className="py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
+    <section className="relative bg-canvas-tint overflow-hidden md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+      <SoftAmbience />
+      <div className="relative py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
         {/* Cabeçalho centralizado */}
         <Reveal>
           <div className="text-center">
@@ -66,120 +78,83 @@ export function AreasSection() {
           <button
             type="button"
             onClick={() => go(-1)}
-            disabled={active === 0}
+            disabled={clampedActive === 0}
             aria-label="Anterior"
-            className="absolute left-0 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-surface-deep text-primary-on-dark shadow-card transition disabled:opacity-30 hover:scale-105"
+            className="absolute -left-4 sm:-left-8 lg:-left-16 xl:-left-20 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/70 text-ink/70 shadow-sm ring-1 ring-ink/10 backdrop-blur-sm transition hover:bg-white hover:text-ink disabled:opacity-30"
           >
             <ChevronLeft className="h-5 w-5" aria-hidden />
           </button>
           <button
             type="button"
             onClick={() => go(1)}
-            disabled={active === specialties.length - 1}
+            disabled={clampedActive >= maxActive}
             aria-label="Próximo"
-            className="absolute right-0 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-surface-deep text-primary-on-dark shadow-card transition disabled:opacity-30 hover:scale-105"
+            className="absolute -right-4 sm:-right-8 lg:-right-16 xl:-right-20 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/70 text-ink/70 shadow-sm ring-1 ring-ink/10 backdrop-blur-sm transition hover:bg-white hover:text-ink disabled:opacity-30"
           >
             <ChevronRight className="h-5 w-5" aria-hidden />
           </button>
 
           {/* Trilho */}
-          <div className="overflow-hidden px-6">
+          <div ref={viewportRef} className="overflow-hidden">
             <div
               className="flex items-stretch transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
               style={{
-                gap: GAP,
-                transform: `translateX(calc(50% - ${
-                  active * STEP + EXPANDED_W / 2
-                }px))`,
+                transform: `translateX(-${offset}px)`,
               }}
             >
-              {specialties.map((s, i) => {
-                const Icon = Icons[
-                  s.icon as keyof typeof Icons
-                ] as Icons.LucideIcon;
-                const isActive = i === active;
-                return (
-                  <button
-                    type="button"
+              {specialties.map((s, i) => (
+                  <div
                     key={s.slug}
-                    onClick={() => setActive(i)}
-                    aria-pressed={isActive}
-                    style={{ width: isActive ? EXPANDED_W : COLLAPSED_W }}
-                    className={`group relative shrink-0 h-[460px] overflow-hidden rounded-[28px] border text-left transition-[width,background-color,border-color,box-shadow] duration-700 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                      isActive
-                        ? "bg-hero-green border-hero-green shadow-2xl"
-                        : "bg-canvas-parchment border-divider-soft shadow-sm hover:border-primary/40"
-                    }`}
+                    style={{
+                      width: cardW,
+                      marginLeft: i === 0 ? 0 : GAP,
+                    }}
+                    className="group relative shrink-0 h-[500px] overflow-hidden rounded-[28px] text-left shadow-card"
                   >
-                    {/* Conteúdo recolhido — número + ícone/título no rodapé */}
-                    <div
-                      className={`absolute inset-0 flex flex-col justify-between p-7 transition-opacity duration-300 ${
-                        isActive
-                          ? "opacity-0 pointer-events-none"
-                          : "opacity-100 delay-200"
-                      }`}
-                    >
-                      <span className="font-serif text-6xl leading-none text-ink/15">
-                        {pad(i + 1)}
-                      </span>
-                      <span className="flex flex-col items-start gap-3">
-                        <Icon
-                          className="h-7 w-7 text-hero-green"
-                          strokeWidth={1.5}
-                          aria-hidden
-                        />
-                        <h3 className="font-serif text-xl text-ink">
-                          {s.title}
-                        </h3>
-                      </span>
-                    </div>
+                    {/* Imagem full-bleed */}
+                    <img
+                      src={s.image}
+                      alt=""
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                      aria-hidden
+                    />
 
-                    {/* Conteúdo expandido — card ativo */}
+                    {/* Degradê escuro na base */}
                     <div
-                      className={`absolute inset-0 flex flex-col p-7 transition-opacity duration-500 ${
-                        isActive
-                          ? "opacity-100 delay-200"
-                          : "opacity-0 pointer-events-none"
-                      }`}
-                    >
-                      <span className="flex items-start justify-between">
-                        <ArrowUpRight
-                          className="h-7 w-7 text-primary-on-dark"
-                          strokeWidth={1.5}
-                          aria-hidden
-                        />
-                      </span>
-                      <span className="mt-2 font-serif text-7xl leading-none text-primary-on-dark/90">
-                        {pad(i + 1)}
-                      </span>
-                      <h3 className="mt-5 font-serif text-3xl text-body-on-dark">
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-deep via-surface-deep/50 to-transparent"
+                      aria-hidden
+                    />
+
+                    {/* Pill (topo-esquerda) */}
+                    <span className="absolute left-4 top-4 inline-flex items-center rounded-full border border-white/40 bg-white/15 px-3 py-1 text-xs font-medium text-white">
+                      {s.title}
+                    </span>
+
+                    {/* Título + descrição (base) */}
+                    <div className="absolute inset-x-0 bottom-0 p-6">
+                      <h3 className="font-serif text-3xl font-medium leading-tight text-white">
                         {s.title}
                       </h3>
-                      <p className="mt-3 text-sm leading-relaxed text-body-on-dark/70">
+                      <p className="mt-2 text-sm leading-relaxed text-white/85">
                         {s.short}
                       </p>
-                      <span
-                        className="mt-auto h-36 w-full rounded-2xl bg-canvas-parchment bg-cover bg-center"
-                        style={{ backgroundImage: `url(${fundocard})` }}
-                        aria-hidden
-                      />
                     </div>
-                  </button>
-                );
-              })}
+                  </div>
+              ))}
             </div>
           </div>
 
-          {/* Dots */}
+          {/* Dots (páginas) */}
           <div className="mt-10 flex justify-center gap-2">
-            {specialties.map((s, i) => (
+            {Array.from({ length: maxActive + 1 }, (_, i) => (
               <button
                 type="button"
-                key={s.slug}
+                key={i}
                 onClick={() => setActive(i)}
-                aria-label={`Ir para ${s.title}`}
+                aria-label={`Ir para página ${i + 1}`}
                 className={`h-2 rounded-full transition-all ${
-                  i === active ? "w-6 bg-hero-green" : "w-2 bg-primary/30"
+                  i === clampedActive ? "w-6 bg-hero-green" : "w-2 bg-ink/15"
                 }`}
               />
             ))}

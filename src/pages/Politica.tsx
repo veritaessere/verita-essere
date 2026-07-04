@@ -5,7 +5,7 @@ export default function Politica() {
   return (
     <>
       <Seo path="/politica-de-privacidade" title="Política de Privacidade" />
-      <section className="bg-canvas">
+      <section className="bg-canvas-tint">
         <div className="container-content py-16 md:py-24 max-w-3xl">
           <p className="eyebrow">LGPD</p>
           <h1 className="mt-3 font-display font-light text-4xl md:text-5xl tracking-tight text-ink">
