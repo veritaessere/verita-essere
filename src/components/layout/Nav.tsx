@@ -1,5 +1,6 @@
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import type { MouseEvent } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { site } from "@/content/site";
@@ -10,9 +11,30 @@ import logo from "@/assets/images/logo.png";
 
 export function Nav() {
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const isHome = pathname === "/";
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
+
+  // navegação em âncoras: rola na home; navega e rola quando em outra página
+  const goToSection = (
+    e: MouseEvent<HTMLAnchorElement>,
+    link: { to: string; id: string }
+  ) => {
+    e.preventDefault();
+    setOpen(false);
+    if (!link.id) {
+      if (isHome) window.scrollTo({ top: 0, behavior: "smooth" });
+      else navigate("/");
+      return;
+    }
+    if (isHome) {
+      document.getElementById(link.id)?.scrollIntoView({ behavior: "smooth" });
+      window.history.replaceState(null, "", link.to);
+    } else {
+      navigate(link.to);
+    }
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8);
@@ -50,19 +72,14 @@ export function Nav() {
           aria-label="Principal"
         >
           {site.navLinks.map((l) => (
-            <NavLink
+            <a
               key={l.to}
-              to={l.to}
-              end={l.to === "/"}
-              className={({ isActive }) =>
-                cn(
-                  "text-sm text-ink/80 hover:text-ink transition-colors",
-                  isActive && "text-ink font-medium"
-                )
-              }
+              href={l.to}
+              onClick={(e) => goToSection(e, l)}
+              className="text-sm text-ink/80 hover:text-ink transition-colors"
             >
               {l.label}
-            </NavLink>
+            </a>
           ))}
         </nav>
 
@@ -95,14 +112,14 @@ export function Nav() {
             aria-label="Mobile"
           >
             {site.navLinks.map((l) => (
-              <NavLink
+              <a
                 key={l.to}
-                to={l.to}
-                end={l.to === "/"}
+                href={l.to}
+                onClick={(e) => goToSection(e, l)}
                 className="text-ink py-2"
               >
                 {l.label}
-              </NavLink>
+              </a>
             ))}
             <Button asChild variant="green" className="mt-2">
               <a

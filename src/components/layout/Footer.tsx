@@ -45,9 +45,9 @@ const footerColumns: FooterColumn[] = [
   {
     label: "Institucional",
     links: [
-      { title: "Sobre", href: "/sobre" },
-      { title: "Equipe", href: "/equipe" },
-      { title: "Áreas de atuação", href: "/especialidades" },
+      { title: "Sobre", href: "/#sobre" },
+      { title: "Equipe", href: "/#equipe" },
+      { title: "Áreas de atuação", href: "/#areas" },
       { title: "Política de Privacidade", href: "/politica-de-privacidade" },
     ],
   },

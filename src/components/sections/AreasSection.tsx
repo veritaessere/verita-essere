@@ -37,7 +37,7 @@ export function AreasSection() {
     setActive((i) => Math.min(maxActive, Math.max(0, Math.min(i, maxActive) + dir)));
 
   return (
-    <section className="relative bg-canvas-tint overflow-hidden md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+    <section id="areas" className="relative bg-canvas-tint overflow-hidden scroll-mt-20 md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
       <SoftAmbience />
       <div className="relative py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
         {/* Cabeçalho centralizado */}

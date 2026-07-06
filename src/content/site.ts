@@ -15,11 +15,12 @@ export const site = {
   hours: { days: "Segunda a sábado", time: "07h às 23h" },
   platform: "Google Meet",
   modality: "100% Online",
+  // navegação em âncoras (one-pager): `id` = seção alvo na home ("" = topo)
   navLinks: [
-    { to: "/", label: "Início" },
-    { to: "/sobre", label: "Sobre" },
-    { to: "/equipe", label: "Equipe" },
-    { to: "/especialidades", label: "Áreas de atuação" },
-    { to: "/contato", label: "Contato" },
+    { to: "/", id: "", label: "Início" },
+    { to: "/#sobre", id: "sobre", label: "Sobre" },
+    { to: "/#equipe", id: "equipe", label: "Equipe" },
+    { to: "/#areas", id: "areas", label: "Áreas de atuação" },
+    { to: "/#contato", id: "contato", label: "Contato" },
   ],
 } as const;

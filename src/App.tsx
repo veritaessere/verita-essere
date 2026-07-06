@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { SkipLink } from "@/components/layout/SkipLink";
 import { Nav } from "@/components/layout/Nav";
+import { ScrollToHash } from "@/components/layout/ScrollToHash";
 import { Footer } from "@/components/layout/Footer";
 import { PageTransition } from "@/components/motion/PageTransition";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
@@ -10,6 +11,7 @@ import { AppRoutes } from "./routes";
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToHash />
       <SkipLink />
       <Nav />
       <main id="main">

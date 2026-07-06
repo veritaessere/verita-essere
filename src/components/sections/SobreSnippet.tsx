@@ -45,7 +45,7 @@ function OliveDivider() {
 
 export function SobreSnippet() {
   return (
-    <section className="relative overflow-hidden bg-canvas-tint md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+    <section id="sobre" className="relative overflow-hidden bg-canvas-tint scroll-mt-20 md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
       <SoftAmbience />
       <div className="relative py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
         <Reveal>
@@ -65,7 +65,7 @@ export function SobreSnippet() {
           </p>
         </Reveal>
 
-        <div className="mt-24 md:mt-32 max-w-2xl mx-auto">
+        <div id="equipe" className="mt-24 md:mt-32 max-w-2xl mx-auto scroll-mt-24">
           {psicologos.map((p, i) => (
             <Reveal key={p.id} delay={i * 0.1}>
               <article className="relative aspect-[1.7/1]">

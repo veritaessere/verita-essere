@@ -6,7 +6,7 @@ import ctafundo from "@/assets/images/fundocta.png";
 
 export function CtaFinal() {
   return (
-    <section className="relative overflow-hidden bg-canvas-tint md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
+    <section id="contato" className="relative overflow-hidden bg-canvas-tint scroll-mt-20 md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
       <SoftAmbience />
       <div className="relative container-content py-20 md:py-28 w-full">
         <Reveal>
