@@ -21,6 +21,6 @@ export const site = {
     { to: "/#sobre", id: "sobre", label: "Sobre" },
     { to: "/#equipe", id: "equipe", label: "Equipe" },
     { to: "/#areas", id: "areas", label: "Áreas de atuação" },
-    { to: "/#contato", id: "contato", label: "Contato" },
+    { to: "/#como-funciona", id: "como-funciona", label: "Contato" },
   ],
 } as const;

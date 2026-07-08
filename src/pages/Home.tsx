@@ -2,9 +2,9 @@ import { Seo } from "@/lib/seo";
 import { Hero } from "@/components/sections/Hero";
 import { SobreSnippet } from "@/components/sections/SobreSnippet";
 import { AreasSection } from "@/components/sections/AreasSection";
+import { ComoPsicoterapiaTrilha } from "@/components/sections/ComoPsicoterapiaTrilha";
 import { ComoFunciona } from "@/components/sections/ComoFunciona";
 import { Faq } from "@/components/sections/Faq";
-import { CtaFinal } from "@/components/sections/CtaFinal";
 import { medicalBusinessSchema } from "@/lib/schema";
 
 export default function Home() {
@@ -14,9 +14,9 @@ export default function Home() {
       <Hero />
       <SobreSnippet />
       <AreasSection />
-      <ComoFunciona />
+      <ComoPsicoterapiaTrilha />
       <Faq />
-      <CtaFinal />
+      <ComoFunciona />
     </>
   );
 }

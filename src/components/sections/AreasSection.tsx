@@ -45,15 +45,10 @@ export function AreasSection() {
           <div className="text-center">
             <p className="eyebrow text-primary">Áreas de atuação</p>
             <span className="mx-auto mt-3 block h-px w-12 bg-primary/60" />
-            <h2 className="mt-6 font-serif font-medium text-ink leading-[1.1] tracking-tight text-3xl sm:text-4xl md:text-5xl lg:text-6xl">
-              O que tratamos com{" "}
-              <em className="italic font-normal text-hero-green">acolhimento</em>{" "}
-              e ciência.
-            </h2>
-            <p className="mt-6 mx-auto max-w-xl text-body leading-relaxed">
-              Oferecemos atendimento psicológico para diferentes demandas
-              emocionais, sempre com acolhimento, ética, escuta qualificada e
-              base científica.
+            <p className="mt-8 mx-auto max-w-3xl text-xl md:text-2xl text-body leading-relaxed">
+              Conheça algumas das principais demandas atendidas em nossa prática
+              clínica e como a psicoterapia pode contribuir para o cuidado da
+              saúde mental.
             </p>
             <div className="mt-8 flex justify-center">
               <Button asChild variant="green" size="lg">

@@ -108,7 +108,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden rounded-t-[2rem] border-t border-white/10 bg-surface-deep text-body-on-dark md:rounded-t-[2.5rem]">
+    <footer className="relative -mt-8 overflow-hidden rounded-t-[2rem] border-t border-white/10 bg-surface-deep text-body-on-dark md:-mt-10 md:rounded-t-[2.5rem]">
       {/* brilho radial no topo */}
       <div
         className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-[radial-gradient(40%_128px_at_50%_0%,rgba(255,255,255,0.08),transparent)]"
