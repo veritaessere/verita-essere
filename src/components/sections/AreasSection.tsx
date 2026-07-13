@@ -117,7 +117,7 @@ export function AreasSection() {
 
                     {/* Degradê escuro na base */}
                     <div
-                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-deep via-surface-deep/50 to-transparent"
+                      className="pointer-events-none absolute inset-0 bg-gradient-to-t from-surface-deep via-surface-deep/20 to-transparent"
                       aria-hidden
                     />
 

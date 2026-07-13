@@ -9,7 +9,7 @@
 .glow-card {
   position: relative;
   border-radius: 24px;
-  background: #0f1815; /* verde quase preto — sólido p/ o caminho passar por trás */
+  background: #0f1815; /* verde quase preto, sólido */
   border: 1px solid rgba(255, 255, 255, 0.08);
   transition: border-color 0.3s ease, background-color 0.3s ease;
 }
@@ -21,5 +21,4 @@
 
 .glow-card > .card-content {
   position: relative;
-  height: 100%;
 }

@@ -43,10 +43,6 @@ export function Nav() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  useEffect(() => {
-    setOpen(false);
-  }, [pathname]);
-
   return (
     <header
       className={cn(
@@ -60,6 +56,7 @@ export function Nav() {
       <div className="container-content flex h-16 md:h-20 items-center justify-between gap-6">
         <Link
           to="/"
+          onClick={() => setOpen(false)}
           className="flex items-center gap-2 text-ink"
           aria-label="Verità Essere — início"
         >

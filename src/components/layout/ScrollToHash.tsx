@@ -10,15 +10,17 @@ export function ScrollToHash() {
     if (!hash) return;
     const id = hash.slice(1);
     let tries = 0;
+    let raf = 0;
     const tryScroll = () => {
       const el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: "smooth" });
       } else if (tries++ < 30) {
-        requestAnimationFrame(tryScroll);
+        raf = requestAnimationFrame(tryScroll);
       }
     };
-    requestAnimationFrame(tryScroll);
+    raf = requestAnimationFrame(tryScroll);
+    return () => cancelAnimationFrame(raf);
   }, [pathname, hash]);
 
   return null;

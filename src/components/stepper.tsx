@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import { createContext, useContext } from 'react';
-import { cn } from '@/lib/utils';
+import { cn } from '@/lib/cn';
 
 // Types
 type StepperOrientation = 'horizontal' | 'vertical';
@@ -19,7 +19,7 @@ interface StepperContextValue {
   setActiveStep: (step: number) => void;
   stepsCount: number;
   orientation: StepperOrientation;
-  registerTrigger: (node: HTMLButtonElement | null) => void;
+  registerTrigger: (node: HTMLButtonElement | null, remove?: boolean) => void;
   triggerNodes: HTMLButtonElement[];
   focusNext: (currentIdx: number) => void;
   focusPrev: (currentIdx: number) => void;
@@ -72,17 +72,16 @@ function Stepper({
   const [triggerNodes, setTriggerNodes] = React.useState<HTMLButtonElement[]>([]);
 
   // Register/unregister triggers
-  const registerTrigger = React.useCallback((node: HTMLButtonElement | null) => {
-    setTriggerNodes((prev) => {
-      if (node && !prev.includes(node)) {
-        return [...prev, node];
-      } else if (!node && prev.includes(node!)) {
-        return prev.filter((n) => n !== node);
-      } else {
-        return prev;
-      }
-    });
-  }, []);
+  const registerTrigger = React.useCallback(
+    (node: HTMLButtonElement | null, remove = false) => {
+      if (!node) return;
+      setTriggerNodes((prev) => {
+        if (remove) return prev.filter((n) => n !== node);
+        return prev.includes(node) ? prev : [...prev, node];
+      });
+    },
+    [],
+  );
 
   const handleSetActiveStep = React.useCallback(
     (step: number) => {
@@ -112,7 +111,7 @@ function Stepper({
       setActiveStep: handleSetActiveStep,
       stepsCount: React.Children.toArray(children).filter(
         (child): child is React.ReactElement =>
-          React.isValidElement(child) && (child.type as { displayName?: string }).displayName === 'StepperItem',
+          React.isValidElement(child) && child.type === StepperItem,
       ).length,
       orientation,
       registerTrigger,
@@ -199,10 +198,11 @@ function StepperTrigger({ asChild = false, className, children, tabIndex, ...pro
   // Register this trigger for keyboard navigation
   const btnRef = React.useRef<HTMLButtonElement>(null);
   React.useEffect(() => {
-    if (btnRef.current) {
-      registerTrigger(btnRef.current);
-    }
-  }, [btnRef.current]);
+    const node = btnRef.current;
+    if (!node) return;
+    registerTrigger(node);
+    return () => registerTrigger(node, true);
+  }, [registerTrigger]);
 
   // Find our index among triggers for navigation
   const myIdx = React.useMemo(

@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { Check } from "lucide-react";
-import { motion, useScroll, useTransform, useMotionValueEvent } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValueEvent } from "motion/react";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/button-1";
 import { Stepper, StepperItem, StepperIndicator } from "@/components/stepper";

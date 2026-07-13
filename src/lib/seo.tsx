@@ -20,6 +20,8 @@ export function Seo({ title, description, path = "/", noindex, jsonLd }: Props) 
       <link rel="canonical" href={url} />
       {noindex && <meta name="robots" content="noindex,nofollow" />}
       <meta property="og:type" content="website" />
+      <meta property="og:locale" content="pt_BR" />
+      <meta property="og:site_name" content={site.name} />
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={desc} />
       <meta property="og:url" content={url} />

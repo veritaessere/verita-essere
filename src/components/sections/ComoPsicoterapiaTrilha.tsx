@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform } from "motion/react";
 import { Reveal } from "@/components/motion/Reveal";
 import { Button } from "@/components/button-1";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
@@ -20,7 +20,7 @@ const entries: Entry[] = [
     title: "O que é a psicoterapia",
     subtitle: "O tratamento",
     description:
-      "Um tratamento que aplica técnicas e abordagens terapêuticas para ajudar você a lidar com seus desafios de forma mais assertiva.",
+      "Psicoterapia é um processo terapêutico estruturado, conduzido por um profissional habilitado, que utiliza métodos psicológicos baseados em teorias e evidências científicas para ajudar a pessoa a compreender e modificar padrões de pensamento, emoção e comportamento que causam sofrimento ou prejudicam seu funcionamento.",
     items: [
       "Identifica padrões de pensamento, comportamento e emoção",
       "Apoia mudanças que promovem mais qualidade de vida",
@@ -50,7 +50,7 @@ const entries: Entry[] = [
     title: "Um caminho com direção",
     subtitle: "O resultado",
     description:
-      "É como seguir um mapa confiável, que orienta cada passo em direção a uma vida com mais leveza e sentido.",
+      "A vida seguirá apresentando desafios, incertezas e mudanças. A diferença é que, agora, você não depende da ausência dos problemas para encontrar equilíbrio. Você desenvolveu recursos para compreender suas emoções, tomar decisões mais conscientes e seguir em frente com autonomia. Este não é o fim do processo, mas o início de uma nova forma de caminhar.",
   },
 ];
 
@@ -116,11 +116,7 @@ export function ComoPsicoterapiaTrilha() {
     compute();
     const ro = new ResizeObserver(compute);
     ro.observe(el);
-    window.addEventListener("resize", compute);
-    return () => {
-      ro.disconnect();
-      window.removeEventListener("resize", compute);
-    };
+    return () => ro.disconnect();
   }, []);
 
   // preenchimento da trilha conforme o scroll cruza a área dos cards
@@ -144,9 +140,9 @@ export function ComoPsicoterapiaTrilha() {
             <p className="eyebrow text-primary">Como funciona a psicoterapia</p>
             <span className="mt-3 block h-px w-16 bg-primary/60" />
             <h2 className="mt-6 font-serif font-medium text-body-on-dark leading-[1.05] tracking-tight text-4xl sm:text-5xl md:text-6xl">
-              E como podemos te ajudar?{" "}
+              Nosso caminho para te{" "}
               <em className="italic font-normal text-primary-on-dark">
-                Com a psicoterapia.
+                ajudar.
               </em>
             </h2>
           </div>

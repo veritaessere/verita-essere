@@ -1,13 +1,14 @@
 import type { Specialty } from "./types";
 import ansiedadeImg from "@/assets/images/ansiedade.png";
 import depressaoImg from "@/assets/images/depressao.png";
-import autistaImg from "@/assets/images/autista.png";
-import psicologiaInfantilImg from "@/assets/images/psicologia_infantil.png";
-import sociaisImg from "@/assets/images/sociais.png";
+import estresseImg from "@/assets/images/estresse.png";
+import traumasImg from "@/assets/images/traumas.png";
+import sonoImg from "@/assets/images/sono.png";
+import autoestimaImg from "@/assets/images/autoestima.png";
 import terceiraIdadeImg from "@/assets/images/terceira_idade.png";
-import transtornoImg from "@/assets/images/transtorno.png";
 import relacionamentosImg from "@/assets/images/relacionamentos.png";
 import lutoImg from "@/assets/images/luto.png";
+import viciosImg from "@/assets/images/vicios.png";
 
 export const specialties: Specialty[] = [
   {
@@ -29,22 +30,40 @@ export const specialties: Specialty[] = [
     image: depressaoImg,
   },
   {
-    slug: "autismo",
-    title: "Espectro Autista",
-    short: "Suporte para a pessoa autista e família.",
+    slug: "estresse-burnout",
+    title: "Estresse e Burnout",
+    short: "Manejo do esgotamento e reequilíbrio da rotina.",
     description:
-      "Acompanhamento clínico para pessoas autistas em diferentes fases da vida e suas famílias. Foco em autoconhecimento, desenvolvimento de habilidades e redução de sobrecarga sensorial e emocional.",
-    icon: "Puzzle",
-    image: autistaImg,
+      "Apoio para lidar com o estresse crônico e o esgotamento profissional (burnout), com estratégias de regulação, definição de limites e recuperação do bem-estar.",
+    icon: "Activity",
+    image: estresseImg,
   },
   {
-    slug: "psicologia-infantil",
-    title: "Psicologia Infantil",
-    short: "Atendimento clínico com crianças.",
+    slug: "traumas",
+    title: "Traumas",
+    short: "Elaboração de experiências difíceis.",
     description:
-      "Atendimento de crianças em ambiente seguro e adequado à faixa etária, com participação ativa dos responsáveis no processo. Trabalho com regulação emocional, comportamento e relações.",
-    icon: "Baby",
-    image: psicologiaInfantilImg,
+      "Espaço seguro para elaborar experiências traumáticas, reduzir o impacto emocional e reconstruir a sensação de segurança e controle sobre a própria vida.",
+    icon: "Brain",
+    image: traumasImg,
+  },
+  {
+    slug: "sono",
+    title: "Sono",
+    short: "Qualidade do sono e higiene do descanso.",
+    description:
+      "Acompanhamento para dificuldades de sono — insônia, sono não reparador — com intervenções comportamentais e manejo dos fatores emocionais envolvidos.",
+    icon: "Activity",
+    image: sonoImg,
+  },
+  {
+    slug: "autoestima-autoconhecimento",
+    title: "Autoestima e autoconhecimento",
+    short: "Fortalecimento da relação consigo mesmo.",
+    description:
+      "Processo de autoconhecimento para fortalecer a autoestima, reconhecer os próprios valores e recursos e construir uma relação mais gentil e confiante consigo mesmo.",
+    icon: "Heart",
+    image: autoestimaImg,
   },
   {
     slug: "terceira-idade",
@@ -56,15 +75,6 @@ export const specialties: Specialty[] = [
     image: terceiraIdadeImg,
   },
   {
-    slug: "transtornos-humor",
-    title: "Transtornos de Humor",
-    short: "Acompanhamento clínico continuado.",
-    description:
-      "Acompanhamento psicológico para pessoas com transtornos de humor, em complemento ao tratamento médico. Foco em manejo, autoconhecimento e prevenção de recaídas.",
-    icon: "Activity",
-    image: transtornoImg,
-  },
-  {
     slug: "relacionamentos",
     title: "Relacionamentos",
     short: "Vínculos afetivos, familiares e profissionais.",
@@ -74,17 +84,17 @@ export const specialties: Specialty[] = [
     image: relacionamentosImg,
   },
   {
-    slug: "habilidades-sociais",
-    title: "Habilidades Sociais",
-    short: "Comunicação, assertividade e autoconfiança.",
+    slug: "vicios",
+    title: "Vícios",
+    short: "Apoio no manejo de dependências e apostas.",
     description:
-      "Desenvolvimento de competências interpessoais: comunicação assertiva, escuta, manejo de conflitos e autoconfiança em contextos sociais e profissionais.",
-    icon: "MessagesSquare",
-    image: sociaisImg,
+      "Acompanhamento para dependências de substâncias e comportamentos compulsivos, como apostas. Foco em compreender gatilhos, reduzir danos e reconstruir o controle sobre a própria vida.",
+    icon: "Activity",
+    image: viciosImg,
   },
   {
     slug: "luto",
-    title: "Luto",
+    title: "Luto e perdas",
     short: "Apoio psicológico em processos de perda.",
     description:
       "Acolhimento para os múltiplos processos de luto — morte, separações, perdas funcionais e simbólicas. Cada luto tem seu tempo; o processo terapêutico oferece companhia nesse caminho.",

@@ -44,7 +44,7 @@ export default function Politica() {
             </p>
 
             <p className="text-sm text-ink-muted-48 pt-8">
-              Última atualização: {new Date().toLocaleDateString("pt-BR")}.
+              Última atualização: 13/07/2026.
             </p>
           </div>
         </div>
