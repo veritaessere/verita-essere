@@ -151,7 +151,7 @@ export function ComoPsicoterapiaTrilha() {
         {/* trilha + cards */}
         <div
           ref={trackRef}
-          className="relative mt-16 flex flex-col gap-10 pt-16 md:mt-20 md:gap-36 md:pt-28"
+          className="relative mt-10 flex flex-col gap-10 pt-2 md:mt-20 md:gap-36 md:pt-28"
         >
           {/* caminho (desktop) — trilho apagado + traço dourado que segue o scroll */}
           {geo && (

@@ -85,7 +85,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
     </>
   );
   const className =
-    "inline-flex items-start gap-1 break-words text-body-muted transition-colors duration-300 hover:text-primary-on-dark";
+    "flex md:inline-flex items-start gap-1 break-words text-body-muted transition-colors duration-300 hover:text-primary-on-dark";
 
   if (link.external) {
     return (
@@ -122,11 +122,11 @@ export function Footer() {
           {/* marca */}
           <AnimatedContainer className="space-y-4">
             <div className="flex items-center gap-2">
-              <img src={logo} alt="" className="h-10 w-10 object-contain" aria-hidden />
-              <span className="font-serif text-2xl">{site.name}</span>
+              <img src={logo} alt="" className="h-9 w-9 md:h-10 md:w-10 object-contain" aria-hidden />
+              <span className="font-serif text-xl md:text-2xl">{site.name}</span>
             </div>
-            <p className="font-serif italic text-body-muted">{site.taglineIt}</p>
-            <p className="text-sm text-body-muted">{site.city}</p>
+            <p className="font-serif italic text-sm md:text-base text-body-muted">{site.taglineIt}</p>
+            <p className="text-[13px] md:text-sm text-body-muted">{site.city}</p>
             <p className="pt-2 text-sm text-body-muted">
               © {new Date().getFullYear()} {site.name}.<br />
               Todos os direitos reservados.
@@ -134,11 +134,11 @@ export function Footer() {
           </AnimatedContainer>
 
           {/* colunas de links */}
-          <div className="grid grid-cols-2 gap-8 md:grid-cols-4 xl:col-span-2">
+          <div className="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-4 md:gap-x-8 md:gap-y-8 xl:col-span-2">
             {footerColumns.map((column, index) => (
               <AnimatedContainer key={column.label} delay={0.1 + index * 0.1}>
                 <h3 className="eyebrow text-body-on-dark">{column.label}</h3>
-                <ul className="mt-4 space-y-2 text-sm">
+                <ul className="mt-4 space-y-2 text-[13px] md:text-sm">
                   {column.links.map((link) => (
                     <li key={link.title}>
                       <FooterLinkItem link={link} />

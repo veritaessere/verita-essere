@@ -39,13 +39,13 @@ export function AreasSection() {
   return (
     <section id="areas" className="relative bg-canvas-tint overflow-hidden scroll-mt-20 md:min-h-[calc(100vh-5rem)] md:flex md:items-center">
       <SoftAmbience />
-      <div className="relative py-20 md:py-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
+      <div className="relative pt-10 pb-20 md:pt-12 md:pb-28 w-full max-w-[1240px] mx-auto px-6 md:px-10">
         {/* Cabeçalho centralizado */}
         <Reveal>
           <div className="text-center">
             <p className="eyebrow text-primary">Áreas de atuação</p>
             <span className="mx-auto mt-3 block h-px w-12 bg-primary/60" />
-            <p className="mt-8 mx-auto max-w-3xl text-xl md:text-2xl text-body leading-relaxed">
+            <p className="mt-8 mx-auto max-w-3xl text-base md:text-2xl text-body leading-relaxed">
               Conheça algumas das principais demandas atendidas em nossa prática
               clínica e como a psicoterapia pode contribuir para o cuidado da
               saúde mental.
