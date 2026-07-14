@@ -75,7 +75,7 @@ export function AreasSection() {
             onClick={() => go(-1)}
             disabled={clampedActive === 0}
             aria-label="Anterior"
-            className="absolute -left-4 sm:-left-8 lg:-left-16 xl:-left-20 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/70 text-ink/70 shadow-sm ring-1 ring-ink/10 backdrop-blur-sm transition hover:bg-white hover:text-ink disabled:opacity-30"
+            className="absolute -left-4 sm:-left-8 lg:-left-16 xl:-left-20 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-hero-green text-white shadow-sm transition hover:bg-hero-green-hover disabled:opacity-30"
           >
             <ChevronLeft className="h-5 w-5" aria-hidden />
           </button>
@@ -84,7 +84,7 @@ export function AreasSection() {
             onClick={() => go(1)}
             disabled={clampedActive >= maxActive}
             aria-label="Próximo"
-            className="absolute -right-4 sm:-right-8 lg:-right-16 xl:-right-20 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-white/70 text-ink/70 shadow-sm ring-1 ring-ink/10 backdrop-blur-sm transition hover:bg-white hover:text-ink disabled:opacity-30"
+            className="absolute -right-4 sm:-right-8 lg:-right-16 xl:-right-20 top-1/2 z-20 -translate-y-1/2 flex h-11 w-11 items-center justify-center rounded-full bg-hero-green text-white shadow-sm transition hover:bg-hero-green-hover disabled:opacity-30"
           >
             <ChevronRight className="h-5 w-5" aria-hidden />
           </button>
