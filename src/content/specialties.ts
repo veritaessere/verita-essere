@@ -50,7 +50,7 @@ export const specialties: Specialty[] = [
   {
     slug: "sono",
     title: "Sono",
-    short: "Qualidade do sono e higiene do descanso.",
+    short: "Insônia, rotina e qualidade do sono.",
     description:
       "Acompanhamento para dificuldades de sono — insônia, sono não reparador — com intervenções comportamentais e manejo dos fatores emocionais envolvidos.",
     icon: "Activity",
