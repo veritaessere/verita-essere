@@ -40,7 +40,7 @@ const entries: Entry[] = [
     title: "Prática baseada em evidências",
     subtitle: "O método",
     description:
-      "Na Verità Essere, o atendimento é amparado na Prática Baseada em Evidências — técnicas com eficácia comprovada cientificamente.",
+      "Na Verità Essere, o atendimento é amparado na Prática Baseada em Evidências, técnicas com eficácia comprovada cientificamente.",
     items: [
       "Abordagens validadas pela ciência",
       "Atendimento individualizado à sua realidade",
