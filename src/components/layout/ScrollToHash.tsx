@@ -30,10 +30,14 @@ export function ScrollToHash() {
 
   // Captura o alvo do 1º load ANTES de qualquer efeito rodar, para o save em
   // cleanup (StrictMode) não sobrescrever a posição salva antes de lermos.
-  const [initialTarget] = useState(() => ({
-    y: readSaved(window.location.pathname),
-    id: window.location.hash ? window.location.hash.slice(1) : "",
-  }));
+  const [initialTarget] = useState(() =>
+    typeof window === "undefined"
+      ? { y: null as number | null, id: "" }
+      : {
+          y: readSaved(window.location.pathname),
+          id: window.location.hash ? window.location.hash.slice(1) : "",
+        }
+  );
 
   const initialDone = useRef(false);
   const prevKey = useRef<string | null>(null);

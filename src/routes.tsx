@@ -1,13 +1,12 @@
-import { lazy } from "react";
 import { Routes, Route } from "react-router-dom";
-// Home é o one-pager principal: importada de forma síncrona para que a hero
-// apareça de primeira, sem o fallback "Carregando…" do Suspense.
+// Importes síncronos: todas as rotas são pré-renderizadas (SSG) e hidratadas por
+// cima do HTML estático. React.lazy aqui causaria mismatch de hidratação, então
+// as páginas entram no bundle principal (são pequenas).
 import Home from "./pages/Home";
-
-const Obrigado = lazy(() => import("./pages/Obrigado"));
-const Politica = lazy(() => import("./pages/Politica"));
-const PsicologoMedianeira = lazy(() => import("./pages/PsicologoMedianeira"));
-const NotFound = lazy(() => import("./pages/NotFound"));
+import Obrigado from "./pages/Obrigado";
+import Politica from "./pages/Politica";
+import PsicologoMedianeira from "./pages/PsicologoMedianeira";
+import NotFound from "./pages/NotFound";
 
 export function AppRoutes() {
   return (

@@ -1,14 +1,13 @@
 import { Leaf } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { buildWaLink } from "@/lib/whatsapp";
-import lucas from "@/assets/images/lucas.png";
-import fundo from "@/assets/images/fundo.png";
+import lucas from "@/assets/images/lucas.webp";
+import lucas560 from "@/assets/images/lucas-560.webp";
 
 export function Hero() {
   return (
     <section
-      className="bg-hero-bg bg-no-repeat bg-cover bg-center md:bg-fixed lg:flex lg:items-stretch lg:h-[calc(100vh-5rem)] lg:overflow-hidden"
-      style={{ backgroundImage: `url(${fundo})` }}
+      className="hero-bg-image bg-hero-bg bg-no-repeat bg-cover bg-center md:bg-fixed lg:flex lg:items-stretch lg:h-[calc(100vh-5rem)] lg:overflow-hidden"
     >
       <div className="w-full px-4 sm:px-6 md:px-10 lg:px-20 xl:px-28 grid grid-cols-1 lg:grid-cols-12 gap-4 md:gap-8 pt-10 sm:pt-12 lg:pt-16 pb-0 lg:items-stretch">
         <div className="lg:col-span-6 pb-0 md:pb-12 lg:pb-0 text-center sm:text-left lg:flex lg:flex-col lg:justify-center lg:-translate-y-20">
@@ -42,11 +41,14 @@ export function Hero() {
         <div className="lg:col-span-6 lg:self-end flex justify-center lg:justify-end">
           <img
             src={lucas}
+            srcSet={`${lucas560} 560w, ${lucas} 912w`}
+            sizes="(min-width: 1536px) 656px, (min-width: 1024px) 470px, (min-width: 640px) 448px, 384px"
             alt="Lucas Fachin, psicólogo da Verità Essere"
-            width={520}
-            height={620}
+            width={912}
+            height={1139}
             loading="eager"
             fetchPriority="high"
+            decoding="async"
             className="block w-full max-w-sm sm:max-w-md h-auto object-contain lg:w-auto lg:max-w-none lg:h-[66vh] xl:h-[74vh] 2xl:h-auto 2xl:max-h-[820px] drop-shadow-hero-photo"
           />
         </div>

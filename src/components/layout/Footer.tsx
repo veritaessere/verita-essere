@@ -1,6 +1,5 @@
-import type { ComponentProps, ReactNode } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
-import { motion, useReducedMotion } from "motion/react";
 import { Mail, MessageCircle, Clock } from "lucide-react";
 import { site } from "@/content/site";
 import { buildWaLink } from "@/lib/whatsapp";
@@ -157,26 +156,11 @@ export function Footer() {
 
 type ViewAnimationProps = {
   delay?: number;
-  className?: ComponentProps<typeof motion.div>["className"];
+  className?: string;
   children: ReactNode;
 };
 
-function AnimatedContainer({ className, delay = 0.1, children }: ViewAnimationProps) {
-  const shouldReduceMotion = useReducedMotion();
-
-  if (shouldReduceMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      initial={{ filter: "blur(4px)", translateY: 12, opacity: 0 }}
-      whileInView={{ filter: "blur(0px)", translateY: 0, opacity: 1 }}
-      viewport={{ once: true, amount: 0.2, margin: "0px 0px -10% 0px" }}
-      transition={{ delay, duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
+// Reveal ao rolar via CSS (.reveal em globals.css) — sem framer-motion.
+function AnimatedContainer({ className, children }: ViewAnimationProps) {
+  return <div className={className ? `reveal ${className}` : "reveal"}>{children}</div>;
 }

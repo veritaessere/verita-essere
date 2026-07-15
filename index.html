@@ -6,30 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#0F1815" />
 
-    <!-- SEO estático para crawlers/scrapers sem JS (WhatsApp, Facebook, Instagram, etc.).
-         Em navegadores, o react-helmet sobrescreve estes valores por rota. -->
-    <title>Verità Essere — A Verdade do Ser</title>
-    <meta
-      name="description"
-      content="Psicólogo em Medianeira (PR) e psicoterapia online, com atendimento humano, ético e baseado em evidências. Agende sua consulta pelo WhatsApp."
+    <!-- Perf: descobre os recursos do hero já no HTML inicial, sem esperar o JS.
+         Fundo do hero (elemento LCP) + fontes acima da dobra (h1 serif + corpo). -->
+    <link rel="preload" as="image" href="/fundo.webp" fetchpriority="high" />
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/cormorant-garamond-latin-500-normal.woff2"
+      crossorigin
     />
-    <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Verità Essere" />
-    <meta property="og:locale" content="pt_BR" />
-    <meta property="og:title" content="Verità Essere — A Verdade do Ser" />
-    <meta
-      property="og:description"
-      content="Psicólogo em Medianeira (PR) e psicoterapia online, com atendimento humano, ético e baseado em evidências. Agende sua consulta pelo WhatsApp."
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/cormorant-garamond-latin-400-italic.woff2"
+      crossorigin
     />
-    <meta property="og:url" content="https://www.veritaessere.com.br/" />
-    <meta property="og:image" content="https://www.veritaessere.com.br/og-image.jpg" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Verità Essere — A Verdade do Ser" />
-    <meta
-      name="twitter:description"
-      content="Psicólogo em Medianeira (PR) e psicoterapia online, com atendimento humano, ético e baseado em evidências."
+    <link
+      rel="preload"
+      as="font"
+      type="font/woff2"
+      href="/fonts/inter-latin-400-normal.woff2"
+      crossorigin
     />
-    <meta name="twitter:image" content="https://www.veritaessere.com.br/og-image.jpg" />
+
+    <!-- SEO por rota: injetado estaticamente no build (SSG via react-helmet-async,
+         ver scripts/prerender.mjs). Em dev, o helmet preenche em runtime. -->
+    <!--app-head-->
   </head>
   <body>
     <div id="root"></div>

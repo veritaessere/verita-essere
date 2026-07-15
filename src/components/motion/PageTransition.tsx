@@ -1,23 +1,21 @@
-import { AnimatePresence, motion } from "motion/react";
+import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
 import type { ReactNode } from "react";
-import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 
+// Transição leve entre rotas via CSS — mantém o framer-motion FORA do bundle
+// inicial (ele só entra nos chunks das seções que animam ao rolar).
+// Não anima o 1º carregamento (a hero/LCP aparece imediatamente); anima apenas
+// nas navegações seguintes. prefers-reduced-motion desliga via media query global.
 export function PageTransition({ children }: { children: ReactNode }) {
   const { pathname } = useLocation();
-  const reduced = usePrefersReducedMotion();
-  if (reduced) return <>{children}</>;
+  const firstRef = useRef(true);
+  const isFirst = firstRef.current;
+  useEffect(() => {
+    firstRef.current = false;
+  }, []);
   return (
-    <AnimatePresence mode="wait">
-      <motion.div
-        key={pathname}
-        initial={{ opacity: 0, y: 8 }}
-        animate={{ opacity: 1, y: 0 }}
-        exit={{ opacity: 0, y: -4 }}
-        transition={{ duration: 0.2, ease: "easeOut" }}
-      >
-        {children}
-      </motion.div>
-    </AnimatePresence>
+    <div key={pathname} className={isFirst ? undefined : "page-enter"}>
+      {children}
+    </div>
   );
 }

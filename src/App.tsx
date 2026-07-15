@@ -1,5 +1,4 @@
 import { Suspense } from "react";
-import { BrowserRouter } from "react-router-dom";
 import { Nav } from "@/components/layout/Nav";
 import { ScrollToHash } from "@/components/layout/ScrollToHash";
 import { Footer } from "@/components/layout/Footer";
@@ -7,9 +6,11 @@ import { PageTransition } from "@/components/motion/PageTransition";
 import { WhatsAppFloat } from "@/components/WhatsAppFloat";
 import { AppRoutes } from "./routes";
 
+// O Router (BrowserRouter no client / StaticRouter no SSG) envolve <App /> nos
+// entrypoints (main.tsx e entry-server.tsx), não aqui.
 export default function App() {
   return (
-    <BrowserRouter>
+    <>
       <ScrollToHash />
       <Nav />
       <main id="main">
@@ -23,6 +24,6 @@ export default function App() {
       </main>
       <WhatsAppFloat />
       <Footer />
-    </BrowserRouter>
+    </>
   );
 }
