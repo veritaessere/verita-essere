@@ -85,7 +85,7 @@ function FooterLinkItem({ link }: { link: FooterLink }) {
     </>
   );
   const className =
-    "flex md:inline-flex items-start gap-1 break-words text-body-muted transition-colors duration-300 hover:text-primary-on-dark";
+    "flex items-start gap-1 break-words text-body-muted transition-colors duration-300 hover:text-primary-on-dark";
 
   if (link.external) {
     return (
