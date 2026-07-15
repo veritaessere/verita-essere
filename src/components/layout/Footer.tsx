@@ -1,6 +1,6 @@
-import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Mail, MessageCircle, Clock } from "lucide-react";
+import { Reveal } from "@/components/motion/Reveal";
 import { site } from "@/content/site";
 import { buildWaLink } from "@/lib/whatsapp";
 import logo from "@/assets/images/logo.webp";
@@ -120,7 +120,7 @@ export function Footer() {
       <div className="container-content py-14 lg:py-16">
         <div className="grid w-full gap-10 xl:grid-cols-3 xl:gap-8">
           {/* marca */}
-          <AnimatedContainer className="space-y-4">
+          <Reveal className="space-y-4">
             <div className="flex items-center gap-2">
               <img src={logo} alt="" className="h-9 w-9 md:h-10 md:w-10 object-contain" aria-hidden />
               <span className="font-serif text-xl md:text-2xl">{site.name}</span>
@@ -131,12 +131,12 @@ export function Footer() {
               © {new Date().getFullYear()} {site.name}.<br />
               Todos os direitos reservados.
             </p>
-          </AnimatedContainer>
+          </Reveal>
 
           {/* colunas de links */}
           <div className="grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-4 md:gap-x-8 md:gap-y-8 xl:col-span-2">
             {footerColumns.map((column, index) => (
-              <AnimatedContainer key={column.label} delay={0.1 + index * 0.1}>
+              <Reveal key={column.label} delay={0.1 + index * 0.1}>
                 <h3 className="eyebrow text-body-on-dark">{column.label}</h3>
                 <ul className="mt-4 space-y-2 text-[13px] md:text-sm">
                   {column.links.map((link) => (
@@ -145,22 +145,11 @@ export function Footer() {
                     </li>
                   ))}
                 </ul>
-              </AnimatedContainer>
+              </Reveal>
             ))}
           </div>
         </div>
       </div>
     </footer>
   );
-}
-
-type ViewAnimationProps = {
-  delay?: number;
-  className?: string;
-  children: ReactNode;
-};
-
-// Reveal ao rolar via CSS (.reveal em globals.css) — sem framer-motion.
-function AnimatedContainer({ className, children }: ViewAnimationProps) {
-  return <div className={className ? `reveal ${className}` : "reveal"}>{children}</div>;
 }
