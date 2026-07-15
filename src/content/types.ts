@@ -1,5 +1,5 @@
 export type Professional = {
-  id: "lucas" | "tamara";
+  id: "lucas";
   name: string;
   firstName: string;
   crp: string;
@@ -31,5 +31,4 @@ export type WhatsAppContext =
   | "hero"
   | "generic"
   | "lucas"
-  | "tamara"
   | `specialty:${string}`;

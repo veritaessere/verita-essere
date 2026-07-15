@@ -16,11 +16,6 @@ describe("buildWaLink", () => {
     expect(url).toContain(encodeURIComponent(waMessages.lucas));
   });
 
-  it("usa mensagem específica para Tamara", () => {
-    const url = buildWaLink("tamara");
-    expect(url).toContain(encodeURIComponent(waMessages.tamara));
-  });
-
   it("monta mensagem de especialidade interpolando o título", () => {
     const url = buildWaLink("specialty:ansiedade");
     expect(decodeURIComponent(url)).toContain("Ansiedade");

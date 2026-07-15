@@ -7,7 +7,7 @@ import { site } from "@/content/site";
 import { buildWaLink } from "@/lib/whatsapp";
 import { cn } from "@/lib/cn";
 import fundo from "@/assets/images/fundo.png";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/images/logo.webp";
 
 export function Nav() {
   const { pathname } = useLocation();

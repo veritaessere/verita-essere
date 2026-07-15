@@ -109,10 +109,9 @@ export function AreasSection() {
                     {/* Imagem full-bleed */}
                     <img
                       src={s.image}
-                      alt=""
+                      alt={`Psicoterapia online para ${s.title.toLowerCase()}`}
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                      aria-hidden
                     />
 
                     {/* Degradê escuro na base */}

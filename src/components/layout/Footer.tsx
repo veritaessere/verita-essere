@@ -4,7 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { Mail, MessageCircle, Clock } from "lucide-react";
 import { site } from "@/content/site";
 import { buildWaLink } from "@/lib/whatsapp";
-import logo from "@/assets/images/logo.png";
+import logo from "@/assets/images/logo.webp";
 
 function Instagram({ className }: { className?: string }) {
   return (
@@ -48,6 +48,7 @@ const footerColumns: FooterColumn[] = [
       { title: "Sobre", href: "/#sobre" },
       { title: "Equipe", href: "/#equipe" },
       { title: "Áreas de atuação", href: "/#areas" },
+      { title: "Psicólogo em Medianeira", href: "/psicologo-em-medianeira" },
       { title: "Política de Privacidade", href: "/politica-de-privacidade" },
     ],
   },

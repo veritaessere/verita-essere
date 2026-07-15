@@ -7,9 +7,9 @@ import { Stepper, StepperItem, StepperIndicator } from "@/components/stepper";
 import { usePrefersReducedMotion } from "@/hooks/usePrefersReducedMotion";
 import { buildWaLink } from "@/lib/whatsapp";
 import { GreenAmbience } from "@/components/ui/GreenAmbience";
-import img1 from "@/assets/images/comocard1.png";
-import img2 from "@/assets/images/comocard2.png";
-import img3 from "@/assets/images/comocard3.png";
+import img1 from "@/assets/images/comocard1.webp";
+import img2 from "@/assets/images/comocard2.webp";
+import img3 from "@/assets/images/comocard3.webp";
 
 const steps = [
   {

@@ -6,7 +6,6 @@ export const waMessages = {
   hero: "Olá! Vim pelo site e gostaria de agendar uma consulta.",
   generic: "Olá! Vim pelo site da Verità Essere e gostaria de mais informações.",
   lucas: "Olá, Lucas! Vim pelo site e gostaria de agendar uma sessão com você.",
-  tamara: "Olá, Tamara! Vim pelo site e gostaria de agendar uma sessão com você.",
 } as const;
 
 export function buildWaLink(context: WhatsAppContext): string {

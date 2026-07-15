@@ -1,14 +1,14 @@
 import type { Specialty } from "./types";
-import ansiedadeImg from "@/assets/images/ansiedade.png";
-import depressaoImg from "@/assets/images/depressao.png";
-import estresseImg from "@/assets/images/estresse.png";
-import traumasImg from "@/assets/images/traumas.png";
-import sonoImg from "@/assets/images/sono.png";
-import autoestimaImg from "@/assets/images/autoestima.png";
-import terceiraIdadeImg from "@/assets/images/terceira_idade.png";
-import relacionamentosImg from "@/assets/images/relacionamentos.png";
-import lutoImg from "@/assets/images/luto.png";
-import viciosImg from "@/assets/images/vicios.png";
+import ansiedadeImg from "@/assets/images/ansiedade.webp";
+import depressaoImg from "@/assets/images/depressao.webp";
+import estresseImg from "@/assets/images/estresse.webp";
+import traumasImg from "@/assets/images/traumas.webp";
+import sonoImg from "@/assets/images/sono.webp";
+import autoestimaImg from "@/assets/images/autoestima.webp";
+import terceiraIdadeImg from "@/assets/images/terceira_idade.webp";
+import relacionamentosImg from "@/assets/images/relacionamentos.webp";
+import lutoImg from "@/assets/images/luto.webp";
+import viciosImg from "@/assets/images/vicios.webp";
 
 export const specialties: Specialty[] = [
   {

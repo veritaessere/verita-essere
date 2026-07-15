@@ -5,12 +5,16 @@ import { AreasSection } from "@/components/sections/AreasSection";
 import { ComoPsicoterapiaTrilha } from "@/components/sections/ComoPsicoterapiaTrilha";
 import { ComoFunciona } from "@/components/sections/ComoFunciona";
 import { Faq } from "@/components/sections/Faq";
-import { medicalBusinessSchema } from "@/lib/schema";
+import { homeSchema } from "@/lib/schema";
 
 export default function Home() {
   return (
     <>
-      <Seo path="/" jsonLd={medicalBusinessSchema} />
+      <Seo
+        path="/"
+        description="Psicólogo em Medianeira (PR) e psicoterapia online, com atendimento humano, ético e baseado em evidências. Agende sua consulta pelo WhatsApp."
+        jsonLd={homeSchema}
+      />
       <Hero />
       <SobreSnippet />
       <AreasSection />

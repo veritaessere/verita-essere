@@ -1,7 +1,7 @@
 import { ShieldCheck, UserRound, Leaf } from "lucide-react";
 import { Reveal } from "@/components/motion/Reveal";
 import { SoftAmbience } from "@/components/ui/SoftAmbience";
-import fundocard from "@/assets/images/fundocard.png";
+import fundocard from "@/assets/images/fundocard.webp";
 import lucasImg from "@/assets/images/lucas.png";
 
 const psicologos = [

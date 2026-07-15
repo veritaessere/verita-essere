@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 
 const Obrigado = lazy(() => import("./pages/Obrigado"));
 const Politica = lazy(() => import("./pages/Politica"));
+const PsicologoMedianeira = lazy(() => import("./pages/PsicologoMedianeira"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 export function AppRoutes() {
@@ -14,6 +15,7 @@ export function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/obrigado" element={<Obrigado />} />
       <Route path="/politica-de-privacidade" element={<Politica />} />
+      <Route path="/psicologo-em-medianeira" element={<PsicologoMedianeira />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

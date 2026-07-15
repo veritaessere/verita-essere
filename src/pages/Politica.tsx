@@ -4,7 +4,11 @@ import { site } from "@/content/site";
 export default function Politica() {
   return (
     <>
-      <Seo path="/politica-de-privacidade" title="Política de Privacidade" />
+      <Seo
+        path="/politica-de-privacidade"
+        title="Política de Privacidade"
+        description="Como a Verità Essere trata e protege os seus dados pessoais, em conformidade com a LGPD (Lei 13.709/2018)."
+      />
       <section className="bg-canvas-tint">
         <div className="container-content py-16 md:py-24 max-w-3xl">
           <p className="eyebrow">LGPD</p>
