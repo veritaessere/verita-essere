@@ -2,7 +2,7 @@ export const site = {
   name: "Verità Essere",
   taglinePt: "A Verdade do Ser",
   taglineIt: "La verità dell'essere",
-  url: "https://www.veritaessere.com.br",
+  url: "https://www.clinicaveritaessere.com",
   description:
     "Clínica de psicologia online com atendimento humano, ético e baseado em evidências.",
   whatsapp: {

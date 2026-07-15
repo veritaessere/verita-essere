@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /obrigado
 
-Sitemap: https://www.veritaessere.com.br/sitemap.xml
+Sitemap: https://www.clinicaveritaessere.com/sitemap.xml
