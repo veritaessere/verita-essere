@@ -47,7 +47,6 @@ const footerColumns: FooterColumn[] = [
       { title: "Sobre", href: "/#sobre" },
       { title: "Equipe", href: "/#equipe" },
       { title: "Áreas de atuação", href: "/#areas" },
-      { title: "Psicólogo em Medianeira", href: "/psicologo-em-medianeira" },
       { title: "Política de Privacidade", href: "/politica-de-privacidade" },
     ],
   },

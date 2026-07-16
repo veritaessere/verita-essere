@@ -18,7 +18,6 @@ const template = readFileSync(path.join(dist, "index.html"), "utf8");
 
 const ROUTES = [
   "/",
-  "/psicologo-em-medianeira",
   "/politica-de-privacidade",
   "/obrigado",
 ];

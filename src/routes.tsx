@@ -5,7 +5,6 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Obrigado from "./pages/Obrigado";
 import Politica from "./pages/Politica";
-import PsicologoMedianeira from "./pages/PsicologoMedianeira";
 import NotFound from "./pages/NotFound";
 
 export function AppRoutes() {
@@ -14,7 +13,6 @@ export function AppRoutes() {
       <Route path="/" element={<Home />} />
       <Route path="/obrigado" element={<Obrigado />} />
       <Route path="/politica-de-privacidade" element={<Politica />} />
-      <Route path="/psicologo-em-medianeira" element={<PsicologoMedianeira />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   );

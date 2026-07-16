@@ -2,6 +2,21 @@
   command = "npm run build"
   publish = "dist"
 
+# Landing /psicologo-em-medianeira removida: 301 permanente pra home, consolidando
+# na raiz a indexação que a página tinha. Precisa vir ANTES do fallback SPA (a 1ª
+# regra que casa vence) e com force=true pra vencer qualquer arquivo estático.
+[[redirects]]
+  from = "/psicologo-em-medianeira"
+  to = "/"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "/psicologo-em-medianeira/*"
+  to = "/"
+  status = 301
+  force = true
+
 # SPA fallback — React Router lida com as rotas no client
 [[redirects]]
   from = "/*"
