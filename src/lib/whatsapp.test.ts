@@ -3,7 +3,7 @@ import { buildWaLink, waMessages } from "./whatsapp";
 
 describe("buildWaLink", () => {
   it("usa o número configurado", () => {
-    expect(buildWaLink("generic")).toMatch(/^https:\/\/wa\.me\/5545888162056\?text=/);
+    expect(buildWaLink("generic")).toMatch(/^https:\/\/wa\.me\/5545988162056\?text=/);
   });
 
   it("url-encoda a mensagem do contexto", () => {

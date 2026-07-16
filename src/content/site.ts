@@ -6,8 +6,8 @@ export const site = {
   description:
     "Clínica de psicologia online com atendimento humano, ético e baseado em evidências.",
   whatsapp: {
-    raw: "5545888162056",
-    display: "(45) 88816-2056",
+    raw: "5545988162056",
+    display: "(45) 98816-2056",
   },
   email: "veritaessere@gmail.com",
   instagram: "https://instagram.com/veritaessere",
