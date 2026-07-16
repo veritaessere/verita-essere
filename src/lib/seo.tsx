@@ -12,7 +12,11 @@ type Props = {
 export function Seo({ title, description, path = "/", noindex, jsonLd }: Props) {
   const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.taglinePt}`;
   const desc = description ?? site.description;
-  const url = `${site.url}${path}`;
+  // Netlify serve as rotas com barra final (o SSG gera <rota>/index.html), então
+  // canonical e og:url precisam bater com a URL que responde 200 — senão apontam
+  // pro 301 e sujam o sinal de indexação. A home ("/") já termina em barra.
+  const rawUrl = `${site.url}${path}`;
+  const url = rawUrl.endsWith("/") ? rawUrl : `${rawUrl}/`;
   return (
     <Helmet>
       <title>{fullTitle}</title>
